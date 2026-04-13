@@ -1,0 +1,204 @@
+<html lang="vi"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Proxy mduyk | Premium Shop</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root { --primary: #22c55e; --bg: #020617; --card: #1e293b; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: white; overflow-x: hidden; min-height: 100vh; user-select: none; background-image: radial-gradient(circle at top, #1e293b 0%, #020617 100%); }
+        #splash-screen { position: fixed; inset: 0; background: #000; display: flex; justify-content: center; align-items: center; z-index: 10000; }
+        .logo-mduyk { font-family: 'Orbitron'; font-size: clamp(2rem, 10vw, 3.5rem); color: var(--primary); letter-spacing: 5px; text-shadow: 0 0 20px var(--primary); animation: zoom 1.2s ease-out; }
+        @keyframes zoom { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        #authPage { position: fixed; inset: 0; background: #0b1220; display: none; justify-content: center; align-items: center; z-index: 9999; padding: 20px; }
+        .auth-box { background: rgba(17, 24, 39, 0.9); padding: 25px; border-radius: 20px; width: 100%; max-width: 360px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .auth-box h3 { font-family: 'Orbitron'; color: var(--primary); text-align: center; margin: 0 0 15px 0; font-size: 1.1rem; }
+        .auth-box input { width: 100%; padding: 14px; margin: 8px 0; border: none; border-radius: 12px; background: #1f2937; color: white; outline: none; font-size: 16px; border: 1px solid transparent; }
+        .auth-box button { width: 100%; padding: 14px; border: none; border-radius: 12px; background: var(--primary); color: #052e16; font-weight: 800; cursor: pointer; margin-top: 10px; }
+        #main { display: none; max-width: 600px; margin: 0 auto; padding-bottom: 40px; }
+        .header { padding: 15px; background: rgba(15, 23, 42, 0.8); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); }
+        .logo { font-family: 'Orbitron'; color: var(--primary); font-weight: 700; font-size: 1.2rem; }
+        #runtime { font-size: 0.7rem; color: var(--primary); font-family: 'Orbitron', monospace; margin-top: 4px; }
+        .menu { display: flex; gap: 10px; padding: 15px; position: sticky; top: 70px; background: var(--bg); z-index: 90; }
+        .menu button { flex: 1; padding: 12px; border: none; border-radius: 15px; background: #1e293b; color: white; font-weight: 600; cursor: pointer; font-size: 0.9rem; }
+        .menu button.active { background: var(--primary); color: #052e16; }
+        .container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 15px; }
+        .box { background: var(--card); padding: 20px 10px; border-radius: 18px; text-align: center; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .price { color: var(--primary); font-weight: 800; font-size: 1.3rem; display: block; margin: 8px 0; }
+        #pay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 2000; padding: 15px; backdrop-filter: blur(8px); }
+        .pay-box { background: #1e293b; padding: 25px; border-radius: 24px; width: 100%; max-width: 400px; border: 1px solid var(--primary); }
+        .pay-box input { width: 100%; padding: 15px; border-radius: 12px; border: none; background: #0f172a; color: white; margin: 15px 0; font-size: 16px; outline: none; border: 1px solid #334155; }
+        .history { padding: 25px 15px; }
+        .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 10px; }
+        .item { background: #111827; margin-bottom: 10px; padding: 15px; border-radius: 15px; font-size: 0.85rem; border-left: 4px solid var(--primary); }
+        .note { margin: 10px 0; color: #facc15; font-size: 0.75rem; font-weight: 600; background: rgba(250, 204, 21, 0.1); padding: 12px; border-radius: 12px; border: 1px dashed rgba(250, 204, 21, 0.3); }
+        .btn-clear { background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.7rem; font-weight: bold; }
+    </style>
+<script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;,&quot;//www.ukrnafta.com/data/map/&quot;,&quot;//maps.google.com/maps&quot;,&quot;//www.openstreetmap.org/export/embed.html&quot;,&quot;//www.google.com/maps/d/u/3/embed&quot;]" data-dynamic-id="659e2299-f61c-4836-8776-62bde85d94ff" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script><script bis_use="true" type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="659e2299-f61c-4836-8776-62bde85d94ff" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script></head>
+<body oncontextmenu="return false;" __processed_a45f1473-0234-4d1c-83f9-36f104a53f33__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQiLCJSRURESVQiOiJlbmFibGVkIiwiUElOVEVSRVNUIjoiZW5hYmxlZCIsIklOU1RBR1JBTSI6ImVuYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZW5hYmxlZCIsIkNPTkZJRyI6ImRpc2FibGVkIn0sInZlcnNpb24iOiIyLjAuNDUiLCJzY29yZSI6MjAwNDUwfV0=">
+
+<div id="splash-screen" bis_skin_checked="1" style="display: none;"><div class="logo-mduyk" bis_skin_checked="1">MDUYK</div></div>
+
+<div id="authPage" bis_skin_checked="1" style="display: flex;">
+    <div class="auth-box" bis_skin_checked="1">
+        <h3>ĐĂNG KÝ</h3>
+        <input id="regUser" placeholder="Tài khoản" autocomplete="off">
+        <input id="regPass" type="password" placeholder="Mật khẩu">
+        <button onclick="register()">ĐĂNG KÝ NGAY</button>
+        <div style="height:1px; background:rgba(255,255,255,0.1); margin:20px 0;" bis_skin_checked="1"></div>
+        <h3>ĐĂNG NHẬP</h3>
+        <input id="logUser" placeholder="Tài khoản" autocomplete="off">
+        <input id="logPass" type="password" placeholder="Mật khẩu">
+        <button onclick="login()">VÀO CỬA HÀNG</button>
+    </div>
+</div>
+
+<div id="main" bis_skin_checked="1">
+    <div class="header" bis_skin_checked="1">
+        <div class="logo-container" bis_skin_checked="1">
+            <div class="logo" bis_skin_checked="1">Proxy mduyk</div>
+            <div id="runtime" bis_skin_checked="1">00:01:57</div>
+        </div>
+        <div style="font-size: 0.8rem; color: #f87171; font-weight: bold; cursor: pointer;" onclick="location.reload()" bis_skin_checked="1">Đăng xuất</div>
+    </div>
+    <div class="menu" bis_skin_checked="1">
+        <button id="btnProxy" class="active" onclick="showTab('proxy')">Proxy</button>
+        <button id="btnKc" onclick="showTab('kc')">Nạp KC</button>
+    </div>
+    <div id="proxyTab" class="container" bis_skin_checked="1">
+        <div class="box" onclick="openPay('Proxy Gói Tuần', '40.000đ')" bis_skin_checked="1"><h3>Gói Tuần</h3><span class="price">40.000đ</span><small>Mua ngay</small></div>
+        <div class="box" onclick="openPay('Proxy Gói Tháng', '80.000đ')" bis_skin_checked="1"><h3>Gói Tháng</h3><span class="price">80.000đ</span><small>Mua ngay</small></div>
+        <div class="box" onclick="openPay('Proxy Gói Năm', '180.000đ')" bis_skin_checked="1"><h3>Gói Năm</h3><span class="price">180.000đ</span><small>Mua ngay</small></div>
+    </div>
+    <div id="kcTab" class="container" style="display:none" bis_skin_checked="1">
+        <div class="box" onclick="openPay('113 KC', '19.800đ')" bis_skin_checked="1"><h3>113 KC</h3><p class="price">19.800đ</p></div>
+        <div class="box" onclick="openPay('283 KC', '48.000đ')" bis_skin_checked="1"><h3>283 KC</h3><p class="price">48.000đ</p></div>
+        <div class="box" onclick="openPay('566 KC', '97.000đ')" bis_skin_checked="1"><h3>566 KC</h3><p class="price">97.000đ</p></div>
+    </div>
+    <div class="history" bis_skin_checked="1">
+        <div class="history-header" bis_skin_checked="1">
+            <h3 style="font-family:'Orbitron'; font-size: 0.9rem; color: var(--primary); margin:0;">LỊCH SỬ GIAO DỊCH</h3>
+            <button class="btn-clear" onclick="clearHistory()">Xóa lịch sử</button>
+        </div>
+        <div id="historyBox" bis_skin_checked="1"></div>
+    </div>
+</div>
+
+<div id="pay" bis_skin_checked="1">
+    <div class="pay-box" bis_skin_checked="1">
+        <h3 style="color:var(--primary); text-align:center; margin:0 0 10px 0;">THANH TOÁN</h3>
+        <p id="product" style="text-align:center; font-weight:bold; margin:0; font-size:1.1rem;"></p>
+        <input id="gameID" placeholder="Nhập ID game">
+        <div style="background:#0f172a; padding:15px; border-radius:15px; border: 1px solid #334155;" bis_skin_checked="1">
+            <p style="margin:0; font-size:0.7rem; color:#94a3b8;">MB BANK</p>
+            <p style="margin:5px 0; font-weight:800; font-size:1rem;">CAO MINH DUY</p>
+            <p style="color:var(--primary); font-size:1.4rem; margin:0; font-family:monospace;"><b>0588807300000</b></p>
+        </div>
+        <div id="randomNote" class="note" bis_skin_checked="1"></div>
+        <button onclick="confirmPay()" style="background:var(--primary); width:100%; padding:16px; border:none; border-radius:12px; font-weight:800; margin-top:15px; color:#052e16; cursor:pointer;">EM BANK RỒI Ạ</button>
+        <button onclick="closePay()" style="background:none; border:none; color:#64748b; width:100%; margin-top:10px; cursor:pointer;">Hủy giao dịch</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const kill = () => {
+            document.body.innerHTML = "<div style='height:100vh;background:#000;color:#ef4444;display:flex;justify-content:center;align-items:center;text-align:center;padding:20px;font-family:Orbitron;'><div><h1>SECURITY BREACH</h1><p>Hệ thống đã tự hủy mã nguồn để bảo mật!ĐỊT MẸ MÀY</p><p style='color:#64748b'>F12 đã bị vô hiệu hóa. Vui lòng tắt và mở lại link.</p></div></div>";
+            sessionStorage.setItem('m_lock', '1');
+            window.stop();
+        };
+        if(sessionStorage.getItem('m_lock')) sessionStorage.removeItem('m_lock');
+        window.addEventListener('keydown', (e) => {
+            const isPC = !/Android|iPhone|iPad/i.test(navigator.userAgent);
+            if(isPC) {
+                if(e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) || (e.ctrlKey && e.key === 'u')) { e.preventDefault(); kill(); }
+            }
+        });
+        setInterval(() => {
+            const isPC = !/Android|iPhone|iPad/i.test(navigator.userAgent);
+            if(isPC) {
+                const threshold = 160;
+                if(window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) kill();
+            }
+        }, 1000);
+    })();
+
+    const ST = Date.now();
+    setInterval(() => {
+        const s = Math.floor((Date.now() - ST) / 1000);
+        const h = Math.floor(s / 3600).toString().padStart(2, '0');
+        const m = Math.floor((s % 3600) / 60).toString().padStart(2, '0');
+        const sc = (s % 60).toString().padStart(2, '0');
+        const el = document.getElementById('runtime');
+        if(el) el.innerText = `${h}:${m}:${sc}`;
+    }, 1000);
+
+    window.onload = () => {
+        setTimeout(() => {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.getElementById('authPage').style.display = 'flex';
+        }, 2000);
+    };
+
+    function register() {
+        const u = document.getElementById("regUser").value.trim();
+        const p = document.getElementById("regPass").value.trim();
+        if(!u || !p) return alert("điền cho đúng vào k đúng thì thôi-)");
+        localStorage.setItem("m_user", u);
+        localStorage.setItem("m_pass", p);
+        alert("Đăng ký thành công! cút vào đi e");
+    }
+
+    function login() {
+        const u = document.getElementById("logUser").value.trim();
+        const p = document.getElementById("logPass").value.trim();
+        if(u === localStorage.getItem("m_user") && p === localStorage.getItem("m_pass") && u !== "") {
+            document.getElementById("authPage").style.display = "none";
+            document.getElementById("main").style.display = "block";
+            loadHistory();
+        } else alert("m có bt nhập không hay chx đăng ký?");
+    }
+
+    function showTab(t) {
+        document.getElementById("proxyTab").style.display = (t === "proxy") ? "grid" : "none";
+        document.getElementById("kcTab").style.display = (t === "kc") ? "grid" : "none";
+        document.getElementById("btnProxy").className = (t === "proxy") ? "active" : "";
+        document.getElementById("btnKc").className = (t === "kc") ? "active" : "";
+    }
+
+    let cI = "";
+    function openPay(n, p) {
+        cI = n + " (" + p + ")";
+        document.getElementById("product").innerText = cI;
+        document.getElementById("pay").style.display = "flex";
+        const ns = ["⚠ Nhập đúng ID game vào nội dung chuyển khoản", "⚠ ghi đúng cái id vào ghi chú bank sai id quên ghi vào ghi chú thì tự chịu k hoàn ", "⚠ GHI cái ID vào ghi chú bank đó k là mất tiền tự chịu", "⚠ nhập cái id vào cái ghi chú bank đó r t duyệt cho"];
+        document.getElementById("randomNote").innerText = ns[Math.floor(Math.random() * ns.length)];
+    }
+
+    function closePay() { document.getElementById("pay").style.display = "none"; document.getElementById("gameID").value = ""; }
+
+    function confirmPay() {
+        const id = document.getElementById("gameID").value.trim();
+        if(!id) return alert("Nhập ID game!");
+        const h = JSON.parse(localStorage.getItem("m_hist") || "[]");
+        h.unshift({ product: cI, id: id, time: new Date().toLocaleString("vi-VN") });
+        localStorage.setItem("m_hist", JSON.stringify(h));
+        closePay(); loadHistory();
+        setTimeout(() => {
+            alert("Đã ghi nhận! Proxy nhắn Zalo Admin, KC đợi 10 phút.");
+            window.location.href = "https://zalo.me/0328033706";
+        }, 500);
+    }
+
+    function loadHistory() {
+        const h = JSON.parse(localStorage.getItem("m_hist") || "[]");
+        const b = document.getElementById("historyBox");
+        if(!b) return;
+        b.innerHTML = h.length ? h.map(i => `<div class="item"><b style="color:var(--primary)">${i.product}</b><br>ID Game: ${i.id}<br><small style="color:#64748b">${i.time} - <span style="color:#fbbf24">Đang xử lý</span></small></div>`).join("") : `<p style="color:#64748b; text-align:center; font-size:13px;">mua hàng ngay cho taooo.</p>`;
+    }
+
+    function clearHistory() { if(confirm("m muốn xoá à")) { localStorage.removeItem("m_hist"); loadHistory(); } }
+</script>
+
+
+</body></html>
